@@ -1,0 +1,41 @@
+#include "pch.h"
+#include <iostream>
+
+int tablica[10];
+
+using namespace std;
+
+int main()
+{
+	for (int x = 0; x <= 9; x++)
+	{
+		cout << "Wpisz wartosc:";
+		cin >> tablica[x];
+	}
+	
+	system("cls");
+
+	cout << "Tabela={";
+
+	for (int x = 0; x <= 8; x++)
+	{
+		cout << tablica[x] << ", ";
+	}
+
+	cout << tablica[9] << "}" << endl;
+
+	for (int y = 1; y <= 10; y++)
+	{
+		for (int x = 0; x <= 9; x++)
+		{
+			if (tablica[x] >= y)
+				cout << "#";
+			else
+				cout << " ";	
+		}
+
+		cout << endl;
+	}
+
+	return 0;
+}
