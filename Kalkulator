@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int x=0;
+int x = 0;
 
 float a, b;
 
@@ -21,7 +21,7 @@ float  test_sub(float a, float b)
 {
 	return a - b;
 }
- 
+
 float test_mul(float a, float b)
 {
 	return a * b;
@@ -48,21 +48,21 @@ int main()
 	{
 		x++;
 
-		cout << x << "." << "Wpisz znak dzialania:";
+		cout << x << "." << "Wpisz znak dzialania: ";
 		cin >> znak;
 
 		if (znak == "sin" || znak == "cos")
 		{
-			cout << "Wpisz wartosc w stopniach:";
+			cout << "Wpisz wartosc w stopniach: ";
 			cin >> a;
 		}
 
 		else if (znak == "*" || znak == "/" || znak == "-" || znak == "+")
 		{
-			cout << "Wpisz wartosc a:";
+			cout << "Wpisz wartosc a: ";
 			cin >> a;
 
-			cout << "wpisz wartosc b:";
+			cout << "wpisz wartosc b: ";
 			cin >> b;
 		}
 
@@ -70,22 +70,24 @@ int main()
 			cout << "Zle wyrazenie" << endl;
 
 		if (znak == "+")
-			cout << "Twoj wynik:" << test_add(a, b) << endl;
+			cout << "Twoj wynik: " << test_add(a, b) << endl;
 
 		if (znak == "-")
-			cout << "Twoj wynik:" << test_sub(a, b) << endl;
+			cout << "Twoj wynik: " << test_sub(a, b) << endl;
 
 		if (znak == "*")
-			cout << "Twoj wynik:" << test_mul(a, b) << endl;
+			cout << "Twoj wynik: " << test_mul(a, b) << endl;
 
 		if (znak == "/")
-			cout << "Twoj wynik:" << test_div(a, b) << endl;
+			cout << "Twoj wynik: " << test_div(a, b) << endl;
 
 		if (znak == "sin")
-			cout << "Twoj wynik:" << test_sin(a) << endl;
+			cout << "Twoj wynik: " << test_sin(a) << endl;
 
 		if (znak == "cos")
-			cout << "Twoj wynik:" << test_cos(a) << endl;
+			cout << "Twoj wynik: " << test_cos(a) << endl;
+
+		cout << endl;
 	}
 	return 0;
 }
