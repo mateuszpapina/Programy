@@ -1,0 +1,114 @@
+#include "pch.h"
+#include <iostream>
+#include <windows.h>
+#include <iomanip>
+
+using namespace std;
+
+float liczby(float tab[10])
+{
+	return tab[10];
+}
+
+
+
+void wypisywanie(float tab[10])
+{
+	cout << "Liczby = {";
+
+	for (int i = 0; i <= 8; i++)
+	{
+		cout << tab[i] << ", ";
+	}
+
+	cout << tab[9] << "}";
+}
+
+
+
+float add(float tab[10])
+{
+	float suma = 0;
+
+	for (int i = 0; i <= 9; i++)
+	{
+		suma += tab[i];
+	}
+
+	return suma;
+}
+
+
+
+float srednia(float tab[10])
+{
+	float srednia = 0;
+
+	for (int i = 0; i <= 9; i++)
+	{
+		srednia += tab[i];
+	}
+
+	return srednia/10;
+}
+
+
+
+float najmniejszy(float tab[10])
+{
+	float min = tab[0];
+
+		for (int i = 1; i <= 9; i++)
+		{
+			if (tab[i] < min)
+				min = tab[i];
+
+		}
+
+		return min;
+}
+
+
+
+float najwiekszy(float tab[10])
+{
+	float max = tab[0];
+
+	for (int i = 1; i <= 9; i++)
+	{
+		if (tab[i] > max)
+			max = tab[i];
+
+	}
+
+	return max;
+}
+
+
+
+int main()
+{
+	float tablica[10];
+
+
+	for (int i = 0; i <= 9; i++)
+	{
+		cout << "Wpisz wartosc " << i+1 << ": ";
+		cin >> tablica[i];
+	}
+
+
+	wypisywanie(tablica);
+
+	cout << endl;
+
+	cout << "Suma tych liczb wynosi: " << add(tablica) << endl;
+
+	cout << "Srednia tych liczb wynosi: " << srednia(tablica) << endl;
+
+	cout << "Wartosc najmniejsza wynosi: " << najmniejszy(tablica) << endl;
+
+	cout << "Wartosc najwieksza wynosi: " << najwiekszy(tablica) << endl;
+
+	return 0;
+}
