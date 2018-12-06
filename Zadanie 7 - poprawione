@@ -99,7 +99,7 @@ void dodawanie_tablic(float tab[10], float tab_1[10])
 
 	for (int i = 0; i <= 8; i++)
 	{
-		cout << tab_suma[i] << " ,";
+		cout << tab_suma[i] << ", ";
 	}
 
 	cout << tab_suma[9] << "}";
