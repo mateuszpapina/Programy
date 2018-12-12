@@ -1,0 +1,151 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+int liczby(int tab[10])
+{
+	return tab[10];
+}
+
+
+
+void wypisywanie(int *tab)
+{
+	cout << "Liczby = {";
+
+	for (int i = 0; i <= 9; i++)
+	{
+		cout << *tab << " ";
+		tab++;
+	}
+
+	cout << "}";
+}
+
+
+
+int add(int *tab)
+{
+	int suma = 0;
+
+	for (int i = 0; i <= 9; i++)
+	{
+		suma += *tab;
+		tab++;
+	}
+
+	return suma;
+}
+
+
+
+int srednia(int *tab)
+{
+	int srednia = 0;
+
+	for (int i = 0; i <= 9; i++)
+	{
+		srednia += *tab;
+		tab++;
+	}
+
+	return srednia / 10;
+}
+
+
+
+int najmniejszy(int *tab)
+{
+	int min = *tab;
+
+	for (int i = 1; i <= 9; i++)
+	{
+		if (*tab < min)
+			min = *tab;
+		tab++;
+	}
+
+	return min;
+}
+
+
+
+int najwiekszy(int *tab)
+{
+	int max = *tab;
+
+	for (int i = 1; i <= 9; i++)
+	{
+		if (*tab > max)
+			max = *tab;
+		i++;
+	}
+
+	return max;
+}
+
+
+
+void dodawanie_tablic(int *tab, int *tab_1)
+{
+	int tab_suma[10];
+
+	for (int i = 0; i <= 10; i++)
+	{
+		tab_suma[i] = *tab + *tab_1;
+		tab++;
+		tab_1++;
+	}
+
+	cout << "Suma elemetow tablic wynosi:" << endl << "{";
+
+	for (int i = 0; i <= 8; i++)
+	{
+		cout << tab_suma[i] << ", ";
+	}
+
+	cout << tab_suma[9] << "}";
+}
+
+
+
+int main()
+{
+	int *tablica;
+	tablica = new int[10];
+
+	
+
+	for (int i = 0; i <= 9; i++)
+	{
+		tablica[i] = i;
+	}
+
+
+	wypisywanie(tablica);
+
+	cout << endl;
+
+	cout << "Suma tych liczb wynosi: " << add(tablica) << endl;
+
+	cout << "Srednia tych liczb wynosi: " << srednia(tablica) << endl;
+
+	cout << "Wartosc najmniejsza wynosi: " << najmniejszy(tablica) << endl;
+
+	cout << "Wartosc najwieksza wynosi: " << najwiekszy(tablica) << endl;
+
+	cout << "Wpisz wartosci dla kolejnej tablicy" << endl;
+
+	int *tab;
+	tab = new int[10];
+
+	for (int i = 0; i <= 9; i++)
+	{
+		tab[i] = i*2;
+	}
+
+	dodawanie_tablic(tablica, tab);
+
+	return 0;
+}
