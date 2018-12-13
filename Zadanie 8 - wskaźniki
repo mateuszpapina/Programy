@@ -59,7 +59,7 @@ int najmniejszy(int *tab)
 {
 	int min = *tab;
 
-	for (int i = 1; i <= 9; i++)
+	for (int i = 0; i <= 9; i++)
 	{
 		if (*tab < min)
 			min = *tab;
@@ -75,11 +75,11 @@ int najwiekszy(int *tab)
 {
 	int max = *tab;
 
-	for (int i = 1; i <= 9; i++)
+	for (int i = 0; i <= 9; i++)
 	{
 		if (*tab > max)
 			max = *tab;
-		i++;
+		tab++;
 	}
 
 	return max;
@@ -115,7 +115,7 @@ int main()
 	int *tablica;
 	tablica = new int[10];
 
-	
+
 
 	for (int i = 0; i <= 9; i++)
 	{
@@ -135,17 +135,19 @@ int main()
 
 	cout << "Wartosc najwieksza wynosi: " << najwiekszy(tablica) << endl;
 
-	cout << "Wpisz wartosci dla kolejnej tablicy" << endl;
-
 	int *tab;
 	tab = new int[10];
 
 	for (int i = 0; i <= 9; i++)
 	{
-		tab[i] = i*2;
+		tab[i] = i * 2;
 	}
 
 	dodawanie_tablic(tablica, tab);
+
+	delete[] tablica;
+
+	delete[] tab;
 
 	return 0;
 }
