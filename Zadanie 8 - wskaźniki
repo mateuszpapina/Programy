@@ -3,36 +3,36 @@
 
 using namespace std;
 
-int liczby(int tab[10])
+float liczby(float *tab)
 {
-	return tab[10];
+	return *tab;
 }
 
 
 
-void wypisywanie(int *tab)
+void wypisywanie(float *tab, int roz)
 {
 	cout << "Liczby = {";
 
-	for (int i = 0; i <= 9; i++)
+	for (int i = 0; i < roz; i++)
 	{
 		cout << *tab << " ";
 		tab++;
 	}
 
 	cout << "}";
+	
 }
 
 
 
-int add(int *tab)
+float add(float *tab, int roz)
 {
-	int suma = 0;
+	float suma = 0;
 
-	for (int i = 0; i <= 9; i++)
+	for (int i = 0; i < roz; i++)
 	{
-		suma += *tab;
-		tab++;
+		suma += tab[i];
 	}
 
 	return suma;
@@ -40,30 +40,29 @@ int add(int *tab)
 
 
 
-int srednia(int *tab)
+float srednia(float *tab, int roz)
 {
-	int srednia = 0;
+	float srednia = 0;
 
-	for (int i = 0; i <= 9; i++)
+	for (int i = 0; i <roz; i++)
 	{
-		srednia += *tab;
-		tab++;
+		srednia += tab[i];
 	}
 
-	return srednia / 10;
+
+	return srednia / roz;
 }
 
 
 
-int najmniejszy(int *tab)
+float najmniejszy(float *tab, int roz)
 {
 	int min = *tab;
 
-	for (int i = 0; i <= 9; i++)
+	for (int i = 0; i < roz; i++)
 	{
-		if (*tab < min)
-			min = *tab;
-		tab++;
+		if (tab[i] < min)
+			min = tab[i];
 	}
 
 	return min;
@@ -71,15 +70,14 @@ int najmniejszy(int *tab)
 
 
 
-int najwiekszy(int *tab)
+float najwiekszy(float *tab, int roz)
 {
 	int max = *tab;
 
-	for (int i = 0; i <= 9; i++)
+	for (int i = 0; i <= roz; i++)
 	{
-		if (*tab > max)
-			max = *tab;
-		tab++;
+		if (tab[i] > max)
+			max = tab[i];
 	}
 
 	return max;
@@ -87,63 +85,60 @@ int najwiekszy(int *tab)
 
 
 
-void dodawanie_tablic(int *tab, int *tab_1)
+float* dodawanie_tablic(float *tab, float *tab_1, int roz)
 {
-	int tab_suma[10];
+	float *tab_suma;
+	tab_suma = new float[roz];
 
-	for (int i = 0; i <= 10; i++)
+	for (int i = 0; i < roz; i++)
 	{
-		tab_suma[i] = *tab + *tab_1;
-		tab++;
-		tab_1++;
+		tab_suma[i] = tab[i] + tab_1[i];
+	
 	}
-
-	cout << "Suma elemetow tablic wynosi:" << endl << "{";
-
-	for (int i = 0; i <= 8; i++)
-	{
-		cout << tab_suma[i] << ", ";
-	}
-
-	cout << tab_suma[9] << "}";
+	return tab_suma;
 }
 
 
 
 int main()
 {
-	int *tablica;
-	tablica = new int[10];
+	int rozmiar;
+
+	cout << "Wpisz rozmiar: " << endl;
+	cin >> rozmiar;
+	
+	float *tablica;
+	tablica = new float[rozmiar];
 
 
 
-	for (int i = 0; i <= 9; i++)
+	for (int i = 0; i < rozmiar; i++)
 	{
 		tablica[i] = i;
 	}
 
 
-	wypisywanie(tablica);
+	wypisywanie(tablica, rozmiar);
 
 	cout << endl;
 
-	cout << "Suma tych liczb wynosi: " << add(tablica) << endl;
+	cout << "Suma tych liczb wynosi: " << add(tablica, rozmiar) << endl;
 
-	cout << "Srednia tych liczb wynosi: " << srednia(tablica) << endl;
+	cout << "Srednia tych liczb wynosi: " << srednia(tablica, rozmiar) << endl;
 
-	cout << "Wartosc najmniejsza wynosi: " << najmniejszy(tablica) << endl;
+	cout << "Wartosc najmniejsza wynosi: " << najmniejszy(tablica, rozmiar) << endl;
 
-	cout << "Wartosc najwieksza wynosi: " << najwiekszy(tablica) << endl;
+	cout << "Wartosc najwieksza wynosi: " << najwiekszy(tablica, rozmiar) << endl;
 
-	int *tab;
-	tab = new int[10];
+	float *tab;
+	tab = new float[rozmiar];
 
-	for (int i = 0; i <= 9; i++)
+	for (int i = 0; i < rozmiar; i++)
 	{
 		tab[i] = i * 2;
 	}
 
-	dodawanie_tablic(tablica, tab);
+	dodawanie_tablic(tablica, tab, rozmiar);
 
 	delete[] tablica;
 
