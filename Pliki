@@ -1,0 +1,361 @@
+#include "pch.h"
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+#include <fstream>
+#include <windows.h>
+
+using namespace std;
+
+int* plik_pierwszy();
+
+int* plik_drugi();
+
+int* plik_trzeci();
+
+int* plik_czwarty();
+
+int* plik_piaty();
+
+int* plik_szosty();
+
+int* plik_siodmy();
+
+int* plik_osmy();
+
+int* plik_dziewiaty();
+
+int* plik_dziesiaty();
+
+int main()
+{
+	fstream plik_1;
+	plik_1.open("liczby_1.txt", ios::out);
+
+	for (int i = 0; i < 100; i++)
+	{
+		plik_1 << plik_pierwszy()[i] << " ";
+	}
+
+	plik_1.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_2;
+	plik_2.open("liczby_2.txt", ios::out);
+
+	for (int i = 0; i < 100; i++)
+	{
+		plik_2 << plik_drugi()[i] << " ";
+	}
+
+	plik_2.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_3;
+	plik_3.open("liczby_3.txt", ios::out);
+
+	for (int i = 0; i < 100; i++)
+	{
+		plik_3 << plik_trzeci()[i] << " ";
+	}
+
+	plik_3.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_4;
+	plik_4.open("liczby_4.txt", ios::out);
+
+	for (int i = 0; i < 100; i++)
+	{
+		plik_4 << plik_czwarty()[i] << " ";
+	}
+
+	plik_4.close();
+	
+	
+	Sleep(1000);
+	
+	
+	fstream plik_5;
+	plik_5.open("liczby_5.txt", ios::out);
+
+	for (int i = 0; i < 100; i++)
+	{
+		plik_5 << plik_piaty()[i] << " ";
+	}
+
+	plik_5.close();
+	
+
+	Sleep(1000);
+
+
+	fstream plik_6;
+	plik_6.open("liczby_6.txt", ios::out);
+
+	for (int i = 0; i < 100; i++)
+	{
+		plik_6 << plik_szosty()[i] << " ";
+	}
+
+	plik_6.close();
+	
+	
+	Sleep(1000);
+	
+
+	fstream plik_7;
+	plik_7.open("liczby_7.txt", ios::out);
+
+	for (int i = 0; i < 100; i++)
+	{
+		plik_7 << plik_siodmy()[i] << " ";
+	}
+
+	plik_7.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_8;
+	plik_8.open("liczby_8.txt", ios::out);
+
+	for (int i = 0; i < 100; i++)
+	{
+		plik_8 << plik_osmy()[i] << " ";
+	}
+
+	plik_8.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_9;
+	plik_9.open("liczby_9.txt", ios::out);
+
+	for (int i = 0; i < 100; i++)
+	{
+		plik_9 << plik_dziewiaty()[i] << " ";
+	}
+
+	plik_9.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_10;
+	plik_10.open("liczby_10.txt", ios::out);
+
+	for (int i = 0; i < 100; i++)
+	{
+		plik_10 << plik_dziesiaty()[i] << " ";
+	}
+
+	plik_10.close();
+
+
+	
+
+	fstream podsumowanie;
+	podsumowanie.open("podsumowanie.txt", ios::out);
+
+
+	int tablica[11] = { 0,0,0,0,0,0,0,0,0,0,0 };
+	int tabela[11] = { 0,0,0,0,0,0,0,0,0,0,0 };
+
+	podsumowanie << "plik_1" << endl;
+
+		for (int i = 0; i <= 10; i++)
+		{
+			for (int x = 0; x < 100; x++)
+			{
+				if (plik_pierwszy()[x] == i)
+				{
+				tablica[i] = tablica[i] + 1;
+				}
+			}
+
+			podsumowanie << "Ilosc wystapien liczby " << i << ": " << tablica[i] << endl;
+		}
+
+
+
+		for (int i = 0; i <= 10; i++)
+		{
+			for (int x = 0; x < 100; x++)
+			{
+				if (plik_pierwszy()[x] == i)
+				{
+				
+				}
+			}
+		}
+
+	
+	
+
+	
+	return 0;
+}
+
+int* plik_pierwszy()
+{
+	int* liczby;
+	liczby = new int[100];
+
+	srand(time(NULL));
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby[i] = rand() % 11;
+	}
+
+	return liczby;
+}
+
+int* plik_drugi()
+{
+	int* liczby;
+	liczby = new int[100];
+
+	srand(time(NULL));
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby[i] = rand() % 11;
+	}
+
+	return liczby;
+}
+
+int* plik_trzeci()
+{
+	int* liczby;
+	liczby = new int[100];
+
+	srand(time(NULL));
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby[i] = rand() % 11;
+	}
+
+	return liczby;
+}
+
+int* plik_czwarty()
+{
+	int* liczby;
+	liczby = new int[100];
+
+	srand(time(NULL));
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby[i] = rand() % 11;
+	}
+
+	return liczby;
+}
+
+int* plik_piaty()
+{
+	int* liczby;
+	liczby = new int[100];
+
+	srand(time(NULL));
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby[i] = rand() % 11;
+	}
+
+	return liczby;
+}
+
+int* plik_szosty()
+{
+	int* liczby;
+	liczby = new int[100];
+
+	srand(time(NULL));
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby[i] = rand() % 11;
+	}
+
+	return liczby;
+}
+
+int* plik_siodmy()
+{
+	int* liczby;
+	liczby = new int[100];
+
+	srand(time(NULL));
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby[i] = rand() % 11;
+	}
+
+	return liczby;
+}
+
+int* plik_osmy()
+{
+	int* liczby;
+	liczby = new int[100];
+
+	srand(time(NULL));
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby[i] = rand() % 11;
+	}
+
+	return liczby;
+}
+
+int* plik_dziewiaty()
+{
+	int* liczby;
+	liczby = new int[100];
+
+	srand(time(NULL));
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby[i] = rand() % 11;
+	}
+
+	return liczby;
+}
+
+int* plik_dziesiaty()
+{
+	int* liczby;
+	liczby = new int[100];
+
+	srand(time(NULL));
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby[i] = rand() % 11;
+	}
+
+	return liczby;
+}
