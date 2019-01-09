@@ -1,0 +1,145 @@
+#include "pch.h"
+#include <iostream>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+	for (;;)
+	{
+	string opcje;
+	
+
+	cout << "Wybierz opcje:" << endl
+		<< "C - tworzenie nowych wpisow" << endl
+		<< "R - przeglad danych" << endl
+		<< "U - aktualizacja istniejacych wpisow" << endl
+		<< "D - kasowanie istniejacych wpisow" << endl
+		<< "E - wylacz program" << endl;
+	cin >> opcje;
+
+	if (opcje == "c" || opcje == "C")
+	{
+		string imie;
+		string nazwisko;
+		string nr_telefonu;
+
+		cout << "Wpisz imie:" << endl;
+		cin >> imie;
+
+		cout << "Wpisz nazwisko:" << endl;
+		cin >> nazwisko;
+
+		cout << "Wpisz nr telefonu:" << endl;
+		cin >> nr_telefonu;
+
+		fstream plik;
+		plik.open("telefon.txt", ios::out | ios::app);
+
+		plik << imie << endl
+			<< nazwisko << endl
+			<< nr_telefonu << endl <<endl ;
+
+		plik.close();
+	}
+
+	else if (opcje == "r" || opcje == "R")
+	{
+		fstream plik;
+		plik.open("telefon.txt", ios::in);
+
+		if (plik.good() == false)
+		{
+			cout << "Brak kontaktow!" << endl;
+			exit(0);
+		}
+	
+		string linia;
+		
+		while (!plik.eof())
+		{
+			getline(plik, linia);
+			cout << linia << endl;
+		}
+
+		plik.close();
+	}
+	
+
+	else if (opcje == "u" || opcje == "U")
+	{
+		string imie_1;
+		string nazwisko_1;
+		string nr_tel;
+
+		cout << "Wpisz imie:" << endl;
+		cin >> imie_1;
+
+		cout << "Wpisz nazwisko:" << endl;
+		cin >> nazwisko_1;
+
+		cout << "Wpisz numer telefonu:" << endl;
+		cin >> nr_tel;
+
+		string imie_zmiana;
+		string nazwisko_zmiana;
+		string nr_tel_zmiana;
+
+		cout << "Zmien imie na:" << endl;
+		cin >> imie_zmiana;
+
+		cout << "Zmien nazwisko na:" << endl;
+		cin >> nazwisko_zmiana;
+
+		cout << "Zmien numer telefonu na:" << endl;
+		cin >> nr_tel_zmiana;
+
+		fstream plik;
+		plik.open("telefon.txt", ios::in);
+
+		if (plik.good() == false)
+		{
+			cout << "Brak kontaktow!" << endl;
+			exit(0);
+		}
+
+		string linia;
+
+		while (!plik.eof())
+		{
+			getline(plik, linia);
+			if (linia == imie_1)
+			{
+				plik.open("telefon.txt", ios::out, ios::app);
+				plik << imie_zmiana;
+				
+			}
+		}
+
+		plik.close();
+	}
+
+	else if (opcje == "d" || opcje == "D")
+	{
+		string ocena;
+			
+		cout << "Czy na pewno chcesz usunac wszystkie kontakty?" << endl;
+			cin >> ocena;
+
+		if (ocena == "Tak" || ocena == "tak")
+		{
+			ofstream plik("telefon.txt");
+		}
+	}
+
+	else if (opcje == "e" || opcje == "E")
+	{
+		exit(0);
+	}
+
+	}
+
+return 0;
+}
