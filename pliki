@@ -1,0 +1,790 @@
+#include "pch.h"
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+#include <fstream>
+#include <windows.h>
+
+using namespace std;
+
+int main()
+{
+	int liczby_1[100];
+	int liczby_2[100];
+	int liczby_3[100];
+	int liczby_4[100];
+	int liczby_5[100];
+	int liczby_6[100];
+	int liczby_7[100];
+	int liczby_8[100];
+	int liczby_9[100];
+	int liczby_10[100];
+
+	fstream plik_1;
+	plik_1.open("liczby_1.txt", ios::out);
+
+	srand(time(NULL));
+
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby_1[i] = rand() % 11;
+		plik_1 << liczby_1[i] << " ";
+	}
+
+	plik_1.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_2;
+	plik_2.open("liczby_2.txt", ios::out);
+
+	srand(time(NULL));
+
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby_2[i] = rand() % 11;
+		plik_2 << liczby_2[i] << " ";
+	}
+
+	plik_2.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_3;
+	plik_3.open("liczby_3.txt", ios::out);
+
+	srand(time(NULL));
+
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby_3[i] = rand() % 11;
+		plik_3 << liczby_3[i] << " ";
+	}
+
+	plik_3.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_4;
+	plik_4.open("liczby_4.txt", ios::out);
+
+	srand(time(NULL));
+
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby_4[i] = rand() % 11;
+		plik_4 << liczby_4[i] << " ";
+	}
+
+	plik_4.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_5;
+	plik_5.open("liczby_5.txt", ios::out);
+
+	srand(time(NULL));
+
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby_5[i] = rand() % 11;
+		plik_5 << liczby_5[i] << " ";
+	}
+
+	plik_5.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_6;
+	plik_6.open("liczby_6.txt", ios::out);
+
+	srand(time(NULL));
+
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby_6[i] = rand() % 11;
+		plik_6 << liczby_6[i] << " ";
+	}
+
+	plik_6.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_7;
+	plik_7.open("liczby_7.txt", ios::out);
+
+	srand(time(NULL));
+
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby_7[i] = rand() % 11;
+		plik_7 << liczby_7[i] << " ";
+	}
+
+	plik_7.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_8;
+	plik_8.open("liczby_8.txt", ios::out);
+
+	srand(time(NULL));
+
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby_8[i] = rand() % 11;
+		plik_8 << liczby_8[i] << " ";
+	}
+
+	plik_8.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_9;
+	plik_9.open("liczby_9.txt", ios::out);
+
+	srand(time(NULL));
+
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby_9[i] = rand() % 11;
+		plik_9 << liczby_9[i] << " ";
+	}
+
+	plik_9.close();
+
+
+	Sleep(1000);
+
+
+	fstream plik_10;
+	plik_10.open("liczby_10.txt", ios::out);
+
+	srand(time(NULL));
+
+
+	for (int i = 0; i < 100; i++)
+	{
+		liczby_10[i] = rand() % 11;
+		plik_10 << liczby_10[i] << " ";
+	}
+
+	plik_10.close();
+
+
+
+
+	fstream podsumowanie;
+	podsumowanie.open("podsumowanie.txt", ios::out);
+
+
+	podsumowanie << "liczby_1" << endl;
+
+
+	int tablica[11] = { 0,0,0,0,0,0,0,0,0,0,0 };
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_1[x] == i)
+			{
+				tablica[i] = tablica[i] + 1;
+			}
+		}
+
+		podsumowanie << "Ilosc wystapien liczby " << i << ": " << tablica[i] << endl;
+	}
+
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		int tab[100];
+
+		for (int i = 0; i < 100; i++)
+		{
+			tab[i] = 0;
+		}
+
+		int a = 0;
+
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_1[x] == i)
+			{
+				tab[a] = tab[a] + 1;
+			}
+
+			else
+			{
+				a = a + 1;
+			}
+		}
+
+		int max = 0;
+
+		for (int y = 0; y < 100; y++)
+		{
+
+			if (tab[y] > max)
+				max = tab[y];
+		}
+
+		podsumowanie << "Ilosc powtorzen cyfry " << i << " z rzedu wynosi: " << max << endl;
+	}
+
+
+	podsumowanie << endl << "liczby_2" << endl; // Nowe  
+
+
+	int tablica_2[11] = { 0,0,0,0,0,0,0,0,0,0,0 };
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_2[x] == i)
+			{
+				tablica_2[i] = tablica_2[i] + 1;
+			}
+		}
+
+		podsumowanie << "Ilosc wystapien liczby " << i << ": " << tablica_2[i] << endl;
+	}
+
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		int tab[100];
+
+		for (int i = 0; i < 100; i++)
+		{
+			tab[i] = 0;
+		}
+
+		int a = 0;
+
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_2[x] == i)
+			{
+				tab[a] = tab[a] + 1;
+			}
+
+			else
+			{
+				a = a + 1;
+			}
+		}
+
+		int max = 0;
+
+		for (int y = 0; y < 100; y++)
+		{
+
+			if (tab[y] > max)
+				max = tab[y];
+		}
+
+		podsumowanie << "Ilosc powtorzen cyfry " << i << " z rzedu wynosi: " << max << endl;
+	}
+
+
+	podsumowanie << endl << "liczby_3" << endl; // Nowe  
+
+
+	int tablica_3[11] = { 0,0,0,0,0,0,0,0,0,0,0 };
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_3[x] == i)
+			{
+				tablica_3[i] = tablica_3[i] + 1;
+			}
+		}
+
+		podsumowanie << "Ilosc wystapien liczby " << i << ": " << tablica_3[i] << endl;
+	}
+
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		int tab[100];
+
+		for (int i = 0; i < 100; i++)
+		{
+			tab[i] = 0;
+		}
+
+		int a = 0;
+
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_3[x] == i)
+			{
+				tab[a] = tab[a] + 1;
+			}
+
+			else
+			{
+				a = a + 1;
+			}
+		}
+
+		int max = 0;
+
+		for (int y = 0; y < 100; y++)
+		{
+
+			if (tab[y] > max)
+				max = tab[y];
+		}
+
+		podsumowanie << "Ilosc powtorzen cyfry " << i << " z rzedu wynosi: " << max << endl;
+	}
+
+
+	podsumowanie << endl << "liczby_4" << endl; // Nowe  
+
+
+	int tablica_4[11] = { 0,0,0,0,0,0,0,0,0,0,0 };
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_4[x] == i)
+			{
+				tablica_4[i] = tablica_4[i] + 1;
+			}
+		}
+
+		podsumowanie << "Ilosc wystapien liczby " << i << ": " << tablica_4[i] << endl;
+	}
+
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		int tab[100];
+
+		for (int i = 0; i < 100; i++)
+		{
+			tab[i] = 0;
+		}
+
+		int a = 0;
+
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_4[x] == i)
+			{
+				tab[a] = tab[a] + 1;
+			}
+
+			else
+			{
+				a = a + 1;
+			}
+		}
+
+		int max = 0;
+
+		for (int y = 0; y < 100; y++)
+		{
+
+			if (tab[y] > max)
+				max = tab[y];
+		}
+
+		podsumowanie << "Ilosc powtorzen cyfry " << i << " z rzedu wynosi: " << max << endl;
+	}
+
+
+	podsumowanie << endl << "liczby_5" << endl; // Nowe  
+
+
+	int tablica_5[11] = { 0,0,0,0,0,0,0,0,0,0,0 };
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_5[x] == i)
+			{
+				tablica_5[i] = tablica_5[i] + 1;
+			}
+		}
+
+		podsumowanie << "Ilosc wystapien liczby " << i << ": " << tablica_5[i] << endl;
+	}
+
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		int tab[100];
+
+		for (int i = 0; i < 100; i++)
+		{
+			tab[i] = 0;
+		}
+
+		int a = 0;
+
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_5[x] == i)
+			{
+				tab[a] = tab[a] + 1;
+			}
+
+			else
+			{
+				a = a + 1;
+			}
+		}
+
+		int max = 0;
+
+		for (int y = 0; y < 100; y++)
+		{
+
+			if (tab[y] > max)
+				max = tab[y];
+		}
+
+		podsumowanie << "Ilosc powtorzen cyfry " << i << " z rzedu wynosi: " << max << endl;
+	}
+
+
+	podsumowanie << endl << "liczby_6" << endl; // Nowe  
+
+
+	int tablica_6[11] = { 0,0,0,0,0,0,0,0,0,0,0 };
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_6[x] == i)
+			{
+				tablica_6[i] = tablica_6[i] + 1;
+			}
+		}
+
+		podsumowanie << "Ilosc wystapien liczby " << i << ": " << tablica_6[i] << endl;
+	}
+
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		int tab[100];
+
+		for (int i = 0; i < 100; i++)
+		{
+			tab[i] = 0;
+		}
+
+		int a = 0;
+
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_6[x] == i)
+			{
+				tab[a] = tab[a] + 1;
+			}
+
+			else
+			{
+				a = a + 1;
+			}
+		}
+
+		int max = 0;
+
+		for (int y = 0; y < 100; y++)
+		{
+
+			if (tab[y] > max)
+				max = tab[y];
+		}
+
+		podsumowanie << "Ilosc powtorzen cyfry " << i << " z rzedu wynosi: " << max << endl;
+	}
+
+
+	podsumowanie << endl << "liczby_7" << endl; // Nowe  
+
+
+	int tablica_7[11] = { 0,0,0,0,0,0,0,0,0,0,0 };
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_7[x] == i)
+			{
+				tablica_7[i] = tablica_6[i] + 1;
+			}
+		}
+
+		podsumowanie << "Ilosc wystapien liczby " << i << ": " << tablica_7[i] << endl;
+	}
+
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		int tab[100];
+
+		for (int i = 0; i < 100; i++)
+		{
+			tab[i] = 0;
+		}
+
+		int a = 0;
+
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_7[x] == i)
+			{
+				tab[a] = tab[a] + 1;
+			}
+
+			else
+			{
+				a = a + 1;
+			}
+		}
+
+		int max = 0;
+
+		for (int y = 0; y < 100; y++)
+		{
+
+			if (tab[y] > max)
+				max = tab[y];
+		}
+
+		podsumowanie << "Ilosc powtorzen cyfry " << i << " z rzedu wynosi: " << max << endl;
+	}
+
+
+	podsumowanie << endl << "liczby_8" << endl; // Nowe  
+
+
+	int tablica_8[11] = { 0,0,0,0,0,0,0,0,0,0,0 };
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_8[x] == i)
+			{
+				tablica_8[i] = tablica_8[i] + 1;
+			}
+		}
+
+		podsumowanie << "Ilosc wystapien liczby " << i << ": " << tablica_8[i] << endl;
+	}
+
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		int tab[100];
+
+		for (int i = 0; i < 100; i++)
+		{
+			tab[i] = 0;
+		}
+
+		int a = 0;
+
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_8[x] == i)
+			{
+				tab[a] = tab[a] + 1;
+			}
+
+			else
+			{
+				a = a + 1;
+			}
+		}
+
+		int max = 0;
+
+		for (int y = 0; y < 100; y++)
+		{
+
+			if (tab[y] > max)
+				max = tab[y];
+		}
+
+		podsumowanie << "Ilosc powtorzen cyfry " << i << " z rzedu wynosi: " << max << endl;
+	}
+
+
+	podsumowanie << endl << "liczby_9" << endl; // Nowe  
+
+
+	int tablica_9[11] = { 0,0,0,0,0,0,0,0,0,0,0 };
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_9[x] == i)
+			{
+				tablica_9[i] = tablica_9[i] + 1;
+			}
+		}
+
+		podsumowanie << "Ilosc wystapien liczby " << i << ": " << tablica_9[i] << endl;
+	}
+
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		int tab[100];
+
+		for (int i = 0; i < 100; i++)
+		{
+			tab[i] = 0;
+		}
+
+		int a = 0;
+
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_9[x] == i)
+			{
+				tab[a] = tab[a] + 1;
+			}
+
+			else
+			{
+				a = a + 1;
+			}
+		}
+
+		int max = 0;
+
+		for (int y = 0; y < 100; y++)
+		{
+
+			if (tab[y] > max)
+				max = tab[y];
+		}
+
+		podsumowanie << "Ilosc powtorzen cyfry " << i << " z rzedu wynosi: " << max << endl;
+	}
+
+
+	podsumowanie << endl << "liczby_10" << endl; // Nowe  
+
+
+	int tablica_10[11] = { 0,0,0,0,0,0,0,0,0,0,0 };
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_10[x] == i)
+			{
+				tablica_10[i] = tablica_10[i] + 1;
+			}
+		}
+
+		podsumowanie << "Ilosc wystapien liczby " << i << ": " << tablica_10[i] << endl;
+	}
+
+
+
+	for (int i = 0; i <= 10; i++)
+	{
+		int tab[100];
+
+		for (int i = 0; i < 100; i++)
+		{
+			tab[i] = 0;
+		}
+
+		int a = 0;
+
+		for (int x = 0; x < 100; x++)
+		{
+			if (liczby_10[x] == i)
+			{
+				tab[a] = tab[a] + 1;
+			}
+
+			else
+			{
+				a = a + 1;
+			}
+		}
+
+		int max = 0;
+
+		for (int y = 0; y < 100; y++)
+		{
+
+			if (tab[y] > max)
+				max = tab[y];
+		}
+
+		podsumowanie << "Ilosc powtorzen cyfry " << i << " z rzedu wynosi: " << max << endl;
+	}
+
+
+
+	podsumowanie.close();
+
+	return 0;
+}
