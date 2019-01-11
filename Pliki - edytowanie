@@ -1,0 +1,70 @@
+#include "pch.h"
+#include <iostream>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+	for (;;)
+	{
+		string opcja;
+
+		cout << "MENU GLOWNE" << endl
+			<< "############################" << endl
+			<< "C - tworzenie nowych wpisow" << endl
+			<< "R - przeglad danych" << endl
+			<< "U - aktualizacja istniejacych wpisow" << endl
+			<< "D - kasowanie istniejacych wpisow" << endl
+			<< "E - wylacz program" << endl
+			<< "############################" << endl
+			<< "Wybierz opcje: ";
+		cin >> opcja;
+
+		if (opcja == "c" || opcja == "C")
+		{
+			string imie, nazwisko, nr_telefonu;			
+
+			cout << "Wpisz imie: ";
+			cin >> imie;
+
+			cout << "Wpisz nazwisko: ";
+			cin >> nazwisko;
+
+			cout << "Wpisz numer telefonu: ";
+			cin >> nr_telefonu;
+
+			fstream plik;
+			plik.open("telefon_" + string(imie) + "_" + string(nazwisko) + ".txt", ios::out);
+
+			plik << imie << endl
+				<< nazwisko << endl
+				<< nr_telefonu;
+
+			plik.close();
+		}
+		
+		else if (opcja == "r" || opcja == "R")
+		{
+
+		}
+
+		else if (opcja == "u" || opcja == "U")
+		{
+
+		}
+
+		else if (opcja == "d" || opcja == "D")
+		{
+
+		}
+
+		else if (opcja == "e" || opcja == "E")
+		{
+			exit(0);
+		}
+			
+	}
+
+}
