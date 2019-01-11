@@ -36,7 +36,7 @@ int main()
 
 		else if (opcja == "r" || opcja == "R")
 		{
-			for (int x = 0; x <= i; x++)
+			for (int x = 0; x <= i - 1; x++)
 			{
 				ifstream plik("C:/Users/mateu/Source/Repos/ConsoleApplication2/ConsoleApplication2/telefon_" + string(imiona[x]) + "_" + string(nazwiska[x]) + ".txt");
 
@@ -52,8 +52,10 @@ int main()
 
 				else
 				{
-					cout << "BŁĄD: nie można otworzyć pliku do odczytu." << endl;
+					cout << endl;
 				}
+				 
+				plik.close();
 			}
 			
 
@@ -86,26 +88,28 @@ int main()
 
 void dodawanie_wpisow()
 {
-	string imie, nazwisko, nr_telefonu;
+	string nr_telefonu;
 
 	cout << "Wpisz imie: ";
-	cin >> imie, imiona[i];
+	cin >> imiona[i];
 
 	cout << "Wpisz nazwisko: ";
-	cin >> nazwisko, nazwiska[i];
-	i++;
+	cin >> nazwiska[i];
+	
 
 	cout << "Wpisz numer telefonu: ";
 	cin >> nr_telefonu;
 
 	fstream plik;
-	plik.open("telefon_" + string(imie) + "_" + string(nazwisko) + ".txt", ios::out);
+	plik.open("telefon_" + string(imiona[i]) + "_" + string(nazwiska[i]) + ".txt", ios::out);
 
-	plik << imie << endl
-		<< nazwisko << endl
+	plik << imiona[i] << endl
+		<< nazwiska[i] << endl
 		<< nr_telefonu;
 
 	plik.close();
+	
+	i++;
 }
 
 void kasowanie_wpisow()
