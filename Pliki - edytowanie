@@ -2,8 +2,15 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <stdio.h>
 
 using namespace std;
+
+void dodawanie_wpisow();
+void kasowanie_wpisow();
+
+string imiona[20], nazwiska[20];
+int i = 0;
 
 int main()
 {
@@ -24,47 +31,106 @@ int main()
 
 		if (opcja == "c" || opcja == "C")
 		{
-			string imie, nazwisko, nr_telefonu;			
-
-			cout << "Wpisz imie: ";
-			cin >> imie;
-
-			cout << "Wpisz nazwisko: ";
-			cin >> nazwisko;
-
-			cout << "Wpisz numer telefonu: ";
-			cin >> nr_telefonu;
-
-			fstream plik;
-			plik.open("telefon_" + string(imie) + "_" + string(nazwisko) + ".txt", ios::out);
-
-			plik << imie << endl
-				<< nazwisko << endl
-				<< nr_telefonu;
-
-			plik.close();
+			dodawanie_wpisow();
 		}
-		
+
 		else if (opcja == "r" || opcja == "R")
 		{
+			for (int x = 0; x <= i; x++)
+			{
+				ifstream plik("C:/Users/mateu/Source/Repos/ConsoleApplication2/ConsoleApplication2/telefon_" + string(imiona[x]) + "_" + string(nazwiska[x]) + ".txt");
+
+				if (plik)
+				{
+					string linia;     
+
+					while (getline(plik, linia))    
+					{
+						cout << linia << endl; 
+					}
+				}
+
+				else
+				{
+					cout << "BŁĄD: nie można otworzyć pliku do odczytu." << endl;
+				}
+			}
+			
 
 		}
 
 		else if (opcja == "u" || opcja == "U")
 		{
-
+			cout << "Dane kontaktu ktore chcesz zmienic:" << endl
+				<< "############################" << endl;
+			kasowanie_wpisow();
+			cout << endl << "Nowe dane kontaktu" << endl 
+				<< "############################" << endl;
+			dodawanie_wpisow();
 		}
 
 		else if (opcja == "d" || opcja == "D")
 		{
-
+			kasowanie_wpisow();
 		}
 
 		else if (opcja == "e" || opcja == "E")
 		{
 			exit(0);
 		}
-			
+
+		cout << endl;
 	}
 
+}
+
+void dodawanie_wpisow()
+{
+	string imie, nazwisko, nr_telefonu;
+
+	cout << "Wpisz imie: ";
+	cin >> imie, imiona[i];
+
+	cout << "Wpisz nazwisko: ";
+	cin >> nazwisko, nazwiska[i];
+	i++;
+
+	cout << "Wpisz numer telefonu: ";
+	cin >> nr_telefonu;
+
+	fstream plik;
+	plik.open("telefon_" + string(imie) + "_" + string(nazwisko) + ".txt", ios::out);
+
+	plik << imie << endl
+		<< nazwisko << endl
+		<< nr_telefonu;
+
+	plik.close();
+}
+
+void kasowanie_wpisow()
+{
+	string imie, nazwisko;
+
+	cout << "Wpisz imie: ";
+	cin >> imie;
+
+	cout << "Wpisz nazwisko: ";
+	cin >> nazwisko;
+
+	fstream plik;
+	plik.open("telefon_" + string(imie) + "_" + string(nazwisko) + ".txt", ios::in);
+
+	if (plik.good() == false)
+	{
+		cout << "Brak takiego kontaktu!" << endl;
+		main();
+	}
+	
+	else
+	{
+	ofstream plik("telefon_" + string(imie) + "_" + string(nazwisko) + ".txt");
+	}
+
+	plik.close();
 }
