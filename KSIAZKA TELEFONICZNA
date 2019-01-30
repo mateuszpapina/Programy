@@ -38,7 +38,7 @@ int main()
 		{
 			for (int x = 0; x <= i - 1; x++)
 			{
-				ifstream plik("C:/Users/mateu/Source/Repos/ConsoleApplication2/ConsoleApplication2/telefon_" + string(imiona[x]) + "_" + string(nazwiska[x]) + ".txt");
+				ifstream plik("C:/Users/mateu/Source/Repos/ConsoleApplication2/ConsoleApplication2/telefon_" + string(imiona[x]) + "_" + string(nazwiska[x]) + ".txt"); // TUTAJ DODAJ LOKALIZCJE SWOICH PILOW
 
 				if (plik)
 				{
